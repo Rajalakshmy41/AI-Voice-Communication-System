@@ -1,0 +1,42 @@
+# Environment Variables & Secrets (CRITICAL SECURITY REQUIREMENT)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv
+
+# Database & Uploads
+*.db
+*.sqlite3
+backend/voicecall.db
+media/
+backend/media/
+
+# Node & Frontend Build
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+.npm
+*.log
+
+# IDE & System
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+desktop.ini
+thumbs.db

@@ -36,7 +36,10 @@ export default function CallScreen({ callSession, role, onCallEnded }) {
   // Establish WebSocket connection
   useEffect(() => {
     const token = getToken();
-    const wsUrl = `ws://localhost:8000/api/v1/calls/ws/${callSession.id}?token=${token}`;
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const host = window.location.host;
+    const defaultWsUrl = `${protocol}//${host}/api/v1/calls/ws/${callSession.id}?token=${token}`;
+    const wsUrl = import.meta.env.VITE_WS_URL ? `${import.meta.env.VITE_WS_URL}/${callSession.id}?token=${token}` : defaultWsUrl;
     
     const socket = new WebSocket(wsUrl);
     socketRef.current = socket;
